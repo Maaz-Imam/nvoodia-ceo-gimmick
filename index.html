@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Next Green CEO — unofficial joke application</title>
+    <meta
+      name="description"
+      content="Parody job posting. Become the next CEO. Not affiliated with NVIDIA. Nothing is stored."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Share+Tech+Mono&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="grid-bg" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">GREENCORE</span>
+        <span class="brand-tag">unofficial · parody · 2026</span>
+      </div>
+      <p class="legal-chip">Not NVIDIA. Not a real job. Your resume never leaves this tab.</p>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="kicker">Urgent succession meme · do not take this seriously</p>
+        <h1>
+          Become <span class="accent">NVIDIA’s</span><br />
+          next CEO <em>(joke)</em>
+        </h1>
+        <p class="lede">
+          The internet decided it was time. We built the application portal the
+          timeline deserved: one button, a fake score, and a leaderboard of
+          people who also cannot run a $4T company.
+        </p>
+        <div class="hero-actions">
+          <button class="apply-btn" id="apply-btn" type="button">Apply Now!</button>
+          <button class="board-btn" id="view-board-btn" type="button">View Leaderboard</button>
+        </div>
+        <p class="fine">
+          Zero servers. Zero cookies we care about. Resume is scored in your
+          browser, then discarded.
+        </p>
+      </section>
+
+      <section class="board" id="leaderboard" aria-labelledby="board-title">
+        <div class="board-head">
+          <div>
+            <h2 id="board-title">Applicant leaderboard</h2>
+            <p>
+              Ranked by a completely unscientific “CEO fitness” score. Seed names
+              are fictional. Your entry lives only in this browser.
+            </p>
+          </div>
+          <div class="stats">
+            <div>
+              <strong id="stat-count">0</strong>
+              <span>in this tab</span>
+            </div>
+            <div>
+              <strong id="stat-you">—</strong>
+              <span>your rank</span>
+            </div>
+          </div>
+        </div>
+        <ol class="ranks" id="ranks"></ol>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Fan gimmick. Not affiliated with, endorsed by, or even glanced at by
+        NVIDIA Corporation. Please do not send this to IR.
+      </p>
+    </footer>
+
+    <dialog id="apply-dialog" class="sheet">
+      <form id="apply-form" method="dialog">
+        <header>
+          <p class="kicker">Confidential-looking but not confidential</p>
+          <h2>CEO application</h2>
+          <p class="hint">
+            We do not upload, save, or email anything. Close the tab and it is
+            gone. The file is read locally to invent a joke score.
+          </p>
+        </header>
+
+        <label>
+          Name or alias
+          <input id="name" name="name" required maxlength="60" placeholder="e.g. CUDA Ken" autocomplete="name" />
+        </label>
+        <label>
+          Current title (honorary is fine)
+          <input id="title" name="title" required maxlength="80" placeholder="Distinguished GPU whisperer" />
+        </label>
+        <label>
+          One-line pitch
+          <input
+            id="pitch"
+            name="pitch"
+            required
+            maxlength="140"
+            placeholder="I will ship more green. That is the strategy."
+          />
+        </label>
+        <label class="file">
+          Resume (optional · .txt, .md, .pdf)
+          <input id="resume" name="resume" type="file" accept=".txt,.md,.pdf,text/plain,application/pdf" />
+          <span id="file-status">Not attached — we will score your vibes instead.</span>
+        </label>
+
+        <div class="actions">
+          <button type="button" class="ghost" id="cancel-btn" value="cancel">Never mind</button>
+          <button type="submit" class="apply-btn compact">Submit to the void</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="result-dialog" class="sheet result">
+      <div>
+        <p class="kicker" id="result-kicker">Board simulation complete</p>
+        <h2 id="result-title">You are in the running.</h2>
+        <p class="scoreline">CEO fitness: <strong id="result-score">0</strong></p>
+        <p id="result-blurb"></p>
+        <button type="button" class="apply-btn compact" id="result-close">See the leaderboard</button>
+      </div>
+    </dialog>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
